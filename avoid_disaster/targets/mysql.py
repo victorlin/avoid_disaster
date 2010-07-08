@@ -25,7 +25,7 @@ class Mysql(base.Target):
         temp = tempfile.NamedTemporaryFile()
         cmd = 'mysqldump -u %s -p%s %s' % (
             self.user, self.password, self.database) 
-        p = subprocess.Popen(cmd, stdout=temp, stderr=subprocess.PIPE)
+        p = subprocess.Popen(cmd, stdout=temp, stderr=subprocess.PIPE, shell=True)
         if p.wait():
             error = p.stderr.read()
             log.error('Failed to execute mysqldump:')
