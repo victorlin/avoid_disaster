@@ -6,6 +6,7 @@ Created on 2010/6/27
 '''
 import logging
 
+import boto.s3.connection
 from boto import s3
 
 import base

@@ -25,6 +25,10 @@ setup(name='avoid_disaster',
         "Topic :: Software Development :: Libraries :: Python Modules",
       ],
       packages=['avoid_disaster', 'test'],
+      install_requires=[
+        'boto',
+      ],
+
       platforms=["Any"],
       license="BSD",
       keywords='backups amazon s3',
