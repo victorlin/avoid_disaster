@@ -1,8 +1,4 @@
-'''
-Created on 2010/6/30
-
-@author: Victor-mortal
-'''
+import os
 import logging
 import datetime
 import types
@@ -41,6 +37,7 @@ class BackupManager(object):
             
             log.info('Processing with handler %s ...', handler)
             output = handler.process(dumpPath, dumpFile)
+            output.seek(0, os.SEEK_SET)
             
             fileName = self._generateFileName(name)
             log.info('Store %s to storage %s ...', fileName, storage)
