@@ -23,7 +23,7 @@ class Mysql(base.Target):
         
     def dump(self):
         temp = tempfile.NamedTemporaryFile()
-        cmd = 'mysqldump -u %s -p%s --hex-blob %s' % (
+        cmd = 'mysqldump -u %s -p%s --hex-blob --default-character-set=utf8 %s' % (
             self.user, self.password, self.database) 
         p = subprocess.Popen(cmd, stdout=temp, stderr=subprocess.PIPE, shell=True)
         if p.wait():
